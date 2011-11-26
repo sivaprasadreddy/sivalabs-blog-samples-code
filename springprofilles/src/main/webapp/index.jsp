@@ -1,0 +1,4 @@
+<%
+
+response.sendRedirect("home.htm");
+%>
