@@ -60,6 +60,7 @@ public class ContactsControllers
 	{
 		ModelAndView mav = new ModelAndView("showContacts");
 		List<Contact> contacts = contactsDAO.getAllContacts();
+		System.out.println(contacts);
 		mav.addObject("SEARCH_CONTACTS_RESULTS_KEY", contacts);
 		return mav;
 	}

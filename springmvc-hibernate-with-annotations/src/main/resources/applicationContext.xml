@@ -18,13 +18,7 @@
 	
 	<context:component-scan base-package="com.sivalabs" />
 	
-	<mvc:annotation-driven /> 
-	
 	<context:property-placeholder location="classpath:config.properties" />
-	
-    <bean 	id="messageSource" 
-    		class="org.springframework.context.support.ResourceBundleMessageSource"
-    		p:basename="Messages"/>
 	    
 	<tx:annotation-driven transaction-manager="transactionManager" />
     

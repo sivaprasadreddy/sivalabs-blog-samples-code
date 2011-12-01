@@ -6,6 +6,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="java-output-path" value="/springmvc-hibernate-with-annotations/target/classes"/>
-        <property name="context-root" value="springmvc-hibernate"/>
+        <property name="context-root" value="springmvc-hibernate-with-annotations"/>
     </wb-module>
 </project-modules>
