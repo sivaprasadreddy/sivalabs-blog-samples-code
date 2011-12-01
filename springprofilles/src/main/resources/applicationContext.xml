@@ -19,7 +19,7 @@
 		</bean>
 	</beans>
 	
-	<beans profile="production">
+	<beans profile="prod">
 		<bean id="sampleService" class="com.sivalabs.SampleService">
 			<property name="status" value="production Service"></property>
 		</bean>

@@ -12,17 +12,17 @@
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- <init-param>
+		 <init-param>
 			<param-name>spring.profiles.active</param-name>
-			<param-value>production</param-value>
-		</init-param> -->
+			<param-value>dev</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	
-	<listener>
+	<!-- <listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
@@ -33,7 +33,7 @@
 
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
-			<param-value>production</param-value>
-	</context-param>
+			<param-value>prod</param-value>
+	</context-param> -->
 	
 </web-app>
