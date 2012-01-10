@@ -9,7 +9,7 @@
   <display-name>springmvc</display-name>
   
   <welcome-file-list>
-    <welcome-file>/</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
