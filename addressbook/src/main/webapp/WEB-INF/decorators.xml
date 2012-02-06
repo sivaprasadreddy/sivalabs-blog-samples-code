@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<decorators>
+
+	<decorator name="authorizedViewDecorator" page="/WEB-INF/views/layout/layout.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+
+	<decorator name="guestViewDecorator" page="/WEB-INF/views/layout/guestLayout.jsp">
+		<pattern>/login.htm</pattern>
+		<pattern>/register.htm</pattern>
+	</decorator>
+
+</decorators>

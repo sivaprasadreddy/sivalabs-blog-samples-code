@@ -1,0 +1,143 @@
+
+body
+{
+	
+	font-family: 'Trebuchet MS',verdana, sans-serif, monospace;
+	font-size: 12px;
+	color: #002952;
+	/*border: 1px solid #000;*/
+		
+}
+
+.site
+{
+	text-align: center;
+	border: 1px solid #002952;
+	background-color: #002952;
+	width: 1200px;
+	height: 800px;
+}
+
+.header
+{
+	font-size: 30px;
+	color : #FFF;
+}
+
+.footer
+{
+	height: 25;
+	font-size: 14px;
+	color : #FFF;
+	text-align: center;
+}
+
+.workPanel
+{
+	height: 675px;
+	background-color: #ADC2D6;
+	padding: 5px 5px 5px 5px;
+	
+}
+
+.nav
+{
+	
+	padding: 1px 1px 1px 1px;
+	background-color: #ADC2D6;
+	border: 1px solid #002952;
+}
+
+.navTbl
+{
+	width: 100%;
+}
+
+.navTbl tr
+{
+	background-color: #002952;
+	height: 30px;
+}
+
+.navTbl td
+{
+	padding-left: 3px;
+}
+
+.userBanner
+{
+	text-align: right;
+	
+}
+
+.tbl 
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tbl, th, td 
+{
+	border: 0px solid black;
+}
+
+th
+{
+	background-color: #6699FF;
+}
+tr.odd
+{
+	background-color: #FFFFFF;
+}
+tr.even
+{
+	background-color: #B2CCFF;
+}
+
+input[type='button'], input[type='submit']
+{
+	
+	background-color: #002952;
+	color : #FFF;
+	cursor: pointer;
+	border: 1px solid;
+	padding: 1px 1px 1px 1px;
+	font-weight: normal;
+}
+
+input[type='text'], input[type='password']
+{
+	border: 1px solid #000000;
+}
+
+.link
+{
+	text-decoration: none;
+	padding: 1px;
+	background-color: #002952;
+	color: #FFF;
+	font-size: 14px;
+	font-family: 'Trebuchet MS';
+}
+
+.textLabel
+{
+	background-color: #002952;
+	color: #FFF;
+}
+
+.error
+{
+	color: 	#FF0000;
+}
+
+.dataTable 
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.dataTable, .dataTable.th, .dataTable.td 
+{
+	border: 1px solid black;
+}

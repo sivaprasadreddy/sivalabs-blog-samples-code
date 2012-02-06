@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+        <link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+<h:body>
+<center>
+    <h:form>
+        <p:panel header="Users Search Form" style="width: 700;">
+        <h:form>
+            <h:panelGrid columns="3" cellpadding="2">
+                <h:outputLabel for="#{userManagedBean.searchUser}" value="UserName"/>
+                <h:inputText value="#{userManagedBean.searchUser}" label="UserName"></h:inputText>
+                <h:commandButton type="submit" value="Search" action="#{userManagedBean.searchUser}"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        </p:panel>
+    
+    
+    <p:dataTable var="user" value="#{userManagedBean.searchUsersResults}"
+            selection="#{userManagedBean.selectedUser}" selectionMode="single"
+            dynamic="true"
+            onRowSelectUpdate="userUpdateForm"
+            onRowUnselectUpdate="userUpdateForm"
+            rowSelectListener="#{userManagedBean.onUserSelect}"
+            rowUnselectListener="#{userManagedBean.onUserUnselect}"
+            paginator="true" rows="5" style="width: 700">
+            <p:column sortBy="#{user.userId}" filterBy="#{user.userId}">
+                <f:facet name="header">
+                <h:outputText value="Id" />
+                </f:facet>
+                <h:outputText value="#{user.userId}" />
+            </p:column>
+            <p:column sortBy="#{user.username}" filterBy="#{user.username}">
+                <f:facet name="header">
+                <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{user.username}" />
+            </p:column>
+            <p:column sortBy="#{user.emailId}" filterBy="#{user.emailId}">
+                <f:facet name="header">
+                <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{user.emailId}" />
+            </p:column>
+            <p:column parser="date" sortBy="#{user.dob}" filterBy="#{user.dob}">
+                <f:facet name="header">
+                <h:outputText value="DOB" />
+                </f:facet>
+                <h:outputText value="#{user.dob}" >
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:outputText>
+           </p:column>
+           
+        </p:dataTable>
+        
+        <p:panel id="userDetailsPanelId" header="Users Details" style="width: 700;">
+        <h:panelGrid columns="2" cellpadding="2" id="userUpdateForm" border="0" >
+                <h:outputLabel for="#{userManagedBean.selectedUser.userId}" value="UserId"/>
+                <h:inputText value="#{userManagedBean.selectedUser.userId}" style="width: 100;" readonly="true"></h:inputText>
+                
+                <h:outputLabel for="#{userManagedBean.selectedUser.username}" value="Username"/>
+                <h:inputText value="#{userManagedBean.selectedUser.username}" readonly="true"></h:inputText>
+                
+                <h:outputLabel for="#{userManagedBean.selectedUser.emailId}" value="EmailId"/>
+                <h:inputText value="#{userManagedBean.selectedUser.emailId}" readonly="true"></h:inputText>
+                
+                <h:outputLabel for="#{userManagedBean.selectedUser.gender}" value="Gender"/>
+                <h:inputText value="#{userManagedBean.selectedUser.gender}" readonly="true"></h:inputText>
+                
+                <h:outputLabel for="#{userManagedBean.selectedUser.dob}" value="DOB"/>
+                <h:inputText value="#{userManagedBean.selectedUser.dob}" readonly="true">
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:inputText>
+                
+            </h:panelGrid>
+            </p:panel>
+        </h:form>        
+        </center>
+</h:body>
+</html>
