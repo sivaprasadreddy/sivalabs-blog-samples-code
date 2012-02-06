@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>corporate-portal</artifactId>
+		<groupId>org.sivalabs</groupId>
+		<version>0.1</version>
+	</parent>
+	<artifactId>corporate-portal-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>corporate-portal-ear</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+	    	<groupId>org.sivalabs</groupId>
+	    	<artifactId>corporate-portal-core</artifactId>
+	    	<version>0.1</version>
+	    	<type>jar</type>
+	    </dependency>
+		<dependency>
+	    	<groupId>org.sivalabs</groupId>
+	    	<artifactId>corporate-portal-ejb</artifactId>
+	    	<version>0.1</version>
+	    	<type>ejb</type>
+	        <scope>provided</scope>
+	    </dependency>
+	    <dependency>
+	    	<groupId>org.sivalabs</groupId>
+	    	<artifactId>corporate-portal-war</artifactId>
+	    	<version>0.1</version>
+	    	<type>war</type>
+	        <scope>provided</scope>
+	    </dependency>
+	</dependencies>
+	<build>
+		<finalName>corporate-portal</finalName>
+		<plugins>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-ear-plugin</artifactId>
+		            <version>2.6</version>
+					<configuration>
+						<version>6</version>
+						<defaultLibBundleDir>lib</defaultLibBundleDir>
+						<generateApplicationXml>false</generateApplicationXml>
+						<!-- <applicationXml>application.xml</applicationXml> -->
+						
+						<!-- <lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-ear-plugin</artifactId>
+										<versionRange>[2.4.2,)</versionRange>
+										<goals>
+											<goal>generate-application-xml</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata> -->
+						<modules>
+							<ejbModule>
+		                     	<groupId>org.sivalabs</groupId>
+		                     	<artifactId>corporate-portal-ejb</artifactId>
+		                  	</ejbModule>
+		                  	<webModule>
+		                     	<groupId>org.sivalabs</groupId>
+		                     	<artifactId>corporate-portal-war</artifactId>
+		                     	<contextRoot>/corporate-portal</contextRoot>
+		                  	</webModule>		                  
+		               </modules>
+					</configuration>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-ear-plugin
+										</artifactId>
+										<versionRange>
+											[2.6,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate-application-xml
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+		<repositories>
+            <repository>
+               <id>jboss-public-repository</id>
+               <name>JBoss Repository</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>               
+               <releases>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+            </repository>
+         </repositories>
+         
+   		<pluginRepositories>
+            <pluginRepository>
+               <id>jboss-public-repository</id>
+               <name>JBoss Repository</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>
+               <releases>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+            </pluginRepository>
+         </pluginRepositories>
+
+</project>

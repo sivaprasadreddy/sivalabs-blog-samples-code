@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE application PUBLIC "-//Sun Microsystems, Inc.//DTD J2EE Application 1.2//EN" "http://java.sun.com/j2ee/dtds/application_1_2.dtd">
+<application>
+  <display-name>corporate-portal-ear</display-name>
+  <module>
+    <ejb>corporate-portal-ejb-0.1.jar</ejb>
+  </module>
+  <module>
+    <web>
+      <web-uri>corporate-portal-war-0.1.war</web-uri>
+      <context-root>/corporate-portal</context-root>
+    </web>
+  </module>
+  
+</application>
