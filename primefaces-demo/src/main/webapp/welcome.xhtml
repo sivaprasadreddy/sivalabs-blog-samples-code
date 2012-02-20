@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>PrimeFacesDemo</title>
+</h:head> 
+<h:body> 
+	
+	<h:form>
+		<p:panel header="Login Form">
+			<h:panelGrid columns="3">
+				<h:outputText value="UserName" id="userName"/>
+				<p:inputText value="#{sampleManagedBean.user.userName}"></p:inputText>
+				<p:message for="userName"/>
+				
+				<h:outputText value="Password" id="password"/>
+				<p:inputText value="#{sampleManagedBean.user.password}"></p:inputText>
+				<p:message for="password"/>
+				
+				<p:commandButton value="Login" action="#{sampleManagedBean.login}" update="loginStatus"/>
+				
+				<h:outputText value="#{sampleManagedBean.loginStatus}" id="loginStatus" />
+				
+			</h:panelGrid>
+		</p:panel>
+	
+		<h:outputLabel value="Enter Name" />	
+		<p:inputText value="#{sampleManagedBean.user.userName}">
+			<p:ajax event="keyup" update="welcomeMsg"></p:ajax>
+		</p:inputText>
+		<h:outputLabel id="welcomeMsg" value="#{sampleManagedBean.welcomeMsg}" />
+	
+	</h:form>
+	
+	
+</h:body> 
+</html>
