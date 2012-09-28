@@ -1,0 +1,66 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+	
+	<ui:define name="content">
+	    	<h:messages />
+	    	<p:messages id="msgs"/>  
+	    	
+	    	<p:panel header="Existing User? Login Here"  id="loginPanel" style="width: 550px;">
+	    		<h:form id="loginForm">
+	    		<p:messages globalOnly="true"/>
+	    		<h:panelGrid columns="3" >
+	    			<h:outputLabel value="UserName :" />
+	    			<p:inputText id="loginUserName" value="${symbol_pound}{userController.loginUser.userName}" 
+	    				required="true" requiredMessage="Enter UserName" size="30"/>
+	    			<p:message for="loginUserName"/>
+	    			
+	    			<h:outputLabel value="Password :" />
+	    			<p:password id="loginPwd" value="${symbol_pound}{userController.loginUser.password}" 
+	    					required="true" requiredMessage="Enter Password" size="30"/>
+	    			<p:message for="loginPwd"/>
+	    			
+	    		</h:panelGrid>
+	    		<p:commandButton value="Login" update="loginForm"  action="${symbol_pound}{userController.login()}"/>
+	    		
+			    </h:form>
+	    	</p:panel>
+	    	
+	    <br/>
+    	<p:panel header="New User? Register Here" id="registrationPanel" style="width: 550px;">
+	   	 <h:form id="registrationForm">
+	    		<p:messages globalOnly="true"/>
+	    		<h:panelGrid columns="3">
+	    			<h:outputLabel value="UserName :" />
+	    			<p:inputText id="regUserName" value="${symbol_pound}{userController.registerUser.userName}" 
+	    				required="true" requiredMessage="Enter UserName" size="30"/>
+	    			<p:message for="regUserName"/>
+	    			
+	    			<h:outputLabel value="Password :" />
+	    			<p:password id="regPwd" value="${symbol_pound}{userController.registerUser.password}" 
+	    				required="true" requiredMessage="Enter Password" size="30"/>
+	    			<p:message for="regPwd"/>
+	    			
+	    			<h:outputLabel value="EmailId :" />
+	    			<p:inputText id="regEmailId" value="${symbol_pound}{userController.registerUser.emailId}" 
+	    				required="true" requiredMessage="Enter EmailId" size="30"/>
+	    			<p:message for="regEmailId"/>
+	    			
+	    			<p:commandButton value="Register" update="registrationForm" action="${symbol_pound}{userController.register()}"></p:commandButton>
+	    		</h:panelGrid>
+	    		
+	    	
+			    </h:form>
+	    	</p:panel>
+	    
+	</ui:define>
+	
+</ui:composition>
