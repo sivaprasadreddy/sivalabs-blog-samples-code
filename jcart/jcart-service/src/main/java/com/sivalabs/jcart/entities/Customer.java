@@ -2,6 +2,7 @@ package com.sivalabs.jcart.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -10,6 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="customer")
+@XmlRootElement
 public class Customer implements Serializable 
 {
 	private static final long serialVersionUID = 1L;

@@ -2,6 +2,7 @@ package com.sivalabs.jcart.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Import;
  *
  */
 @Configuration
+@EnableScheduling
 @Import(JCartPersistenceConfig.class)
 public class JCartServicesConfig
 {

@@ -29,6 +29,7 @@
     <commons.dbcp.version>1.4</commons.dbcp.version>
     <commons.pool.version>1.6</commons.pool.version>
     <commons.lang.version>2.5</commons.lang.version>  
+    <commons.io.version>2.4</commons.io.version>
     
     <servlet.version>3.0.1</servlet.version>
     <jsp.version>2.1</jsp.version>
@@ -236,6 +237,11 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons.lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
             </dependency>
             
             <dependency>

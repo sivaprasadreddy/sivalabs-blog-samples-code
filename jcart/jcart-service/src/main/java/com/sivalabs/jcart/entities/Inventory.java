@@ -1,6 +1,7 @@
 package com.sivalabs.jcart.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Siva
@@ -8,6 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="inventory")
+@XmlRootElement
 public class Inventory
 {
 	@Id

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Siva
@@ -11,12 +12,13 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="orders")
+@XmlRootElement
 public class Order
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="order_id", unique=true, nullable=false)
-	private int orderId;
+	private long orderId;
 
     @Temporal( TemporalType.TIMESTAMP)
 	@Column(name="created_on", nullable=false)
@@ -40,12 +42,12 @@ public class Order
     @OneToMany(cascade=CascadeType.ALL, mappedBy="order")
     private Set<LineItem> lineItems;
 
-	public int getOrderId()
+	public long getOrderId()
 	{
 		return orderId;
 	}
 
-	public void setOrderId(int orderId)
+	public void setOrderId(long orderId)
 	{
 		this.orderId = orderId;
 	}

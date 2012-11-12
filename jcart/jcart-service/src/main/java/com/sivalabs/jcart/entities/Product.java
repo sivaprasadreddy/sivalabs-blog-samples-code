@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -23,6 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="product")
+@XmlRootElement
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 

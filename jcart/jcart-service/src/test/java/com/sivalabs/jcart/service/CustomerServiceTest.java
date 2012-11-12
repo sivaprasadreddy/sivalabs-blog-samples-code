@@ -35,7 +35,6 @@ public class CustomerServiceTest
 	@Autowired private OrderService orderService;
 	@Autowired private CatalogService catalogService;
 	
-	
 	@Test
 	@Ignore
 	public void testCreateCustomer()
@@ -93,6 +92,7 @@ public class CustomerServiceTest
 	}
 	
 	@Test
+	@Ignore
 	public void testPlaceOrder()
 	{
 		Customer customer = new Customer();

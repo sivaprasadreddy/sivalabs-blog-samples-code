@@ -1,6 +1,8 @@
 package com.sivalabs.jcart.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * @author Siva
@@ -8,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="lineitem")
+@XmlRootElement
 public class LineItem
 {
 	@Id
@@ -55,7 +58,7 @@ public class LineItem
 	{
 		this.quantity = quantity;
 	}
-
+	@XmlTransient
 	public Order getOrder()
 	{
 		return order;
