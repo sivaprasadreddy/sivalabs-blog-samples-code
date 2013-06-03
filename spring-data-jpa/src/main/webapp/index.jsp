@@ -1,3 +1,0 @@
-<%
-response.sendRedirect("viewAllContacts.do");
-%>
