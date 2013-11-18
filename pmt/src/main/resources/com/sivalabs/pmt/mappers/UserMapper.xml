@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sivalabs.pmt.mappers.UserMapper">
+	
+	<resultMap type="User" id="UserResult">
+		<id property="id" column="user_id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+	</resultMap>
+	
+	<select id="selectUser" resultMap="UserResult" parameterType="int">
+		SELECT user_id, username, password, email FROM USERS WHERE USER_ID=#{id}
+	</select>
+	
+	<select id="selectAllUsers" resultMap="UserResult">
+		SELECT user_id, username, password, email FROM USERS
+	</select>
+	
+	<select id="login" resultMap="UserResult">
+		SELECT user_id, username, password, email FROM USERS WHERE USERNAME=#{username} and password=#{password}
+	</select>
+	
+	<insert id="createUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into users(username, password, email) values(#{username},#{password},#{email})
+	</insert>
+	
+	<update id="updateUser" parameterType="User">
+		update users set password=#{password} where username=#{username}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int">
+		delete from users where user_id=#{id}
+	</delete>
+	
+</mapper>
