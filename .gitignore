@@ -1,2 +1,13 @@
+*.class
 
+# Package Files #
+*.jar
+*.war
+*.ear
+
+.settings
 target
+.classpath
+.project
+.springBeans
+
