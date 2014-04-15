@@ -1,8 +1,0 @@
-
-<script type="text/javascript" src="${rootUrl}resources/jquery/jquery-1.10.2.js"></script>
-<link rel="stylesheet" href="${rootUrl}resources/bootstrap/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="${rootUrl}resources/bootstrap/css/bootstrap-theme.min.css"/>
-<script type="text/javascript" src="${rootUrl}resources/bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="${rootUrl}resources/css/styles.css"/>
-<script type="text/javascript" src="${rootUrl}resources/js/app.js"></script>
-        
