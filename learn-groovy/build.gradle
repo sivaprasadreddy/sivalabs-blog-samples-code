@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.1.6'
+	runtime 'mysql:mysql-connector-java:5.1.26'	
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
