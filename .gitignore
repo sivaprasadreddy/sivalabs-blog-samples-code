@@ -11,4 +11,7 @@ target
 .project
 .springBeans
 
+
+bin
+build
 .gradle
