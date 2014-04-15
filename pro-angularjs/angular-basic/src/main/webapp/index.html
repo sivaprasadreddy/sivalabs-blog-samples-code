@@ -16,13 +16,17 @@
 	<div class="page-header">
 		<h1>
 			{{todo.user}}'s To Do List
-			<span class="label label-default">{{todo.items.length}}</span>
+			<span class="label label-default">Total: {{todo.items.length}}</span>
+			<span class="label label-default" ng-hide="incompleteCount() == 0" ng-class="warningLevel()">
+				Incomplete: {{incompleteCount()}}
+			</span>
 		</h1>
 	</div>
 	<div class="panel">
 		<div class="input-group">
-			<input class="form-control" /> <span class="input-group-btn">
-				<button class="btn btn-default">Add</button>
+			<input class="form-control" ng-model="actionText" />
+			<span class="input-group-btn">
+			<button class="btn btn-default" ng-click="addNewItem(actionText)">Add</button>
 			</span>
 		</div>
 		<table class="table table-striped">
@@ -33,12 +37,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in todo.items">
-					<td>{{item.action}}</td>
-					<td>{{item.done}}</td>
+				<tr ng-repeat="item in todo.items | checkedItems:showComplete | orderBy:'action'">
+				<td>{{item.action}}</td>
+				<td><input type="checkbox" ng-model="item.done" /></td>
 				</tr>
+				
 			</tbody>
 		</table>
+		<div class="checkbox-inline">
+			<label><input type="checkbox" ng-model="showComplete"> Show Complete</label>
+		</div>
 	</div>
 </body>
 </html>
