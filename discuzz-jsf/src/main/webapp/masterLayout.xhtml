@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html" locale="en">
+	<h:head>
+		<title>#{msg['app.title']}</title>
+		<f:facet name="first">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta http-equiv="pragma" content="no-cache" />
+			<meta http-equiv="cache-control" content="no-cache" />
+			<meta http-equiv="expires" content="0" />
+		</f:facet>
+		<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+		<ui:insert name="head" />
+	</h:head>
+	<h:body>
+
+		<div class="wrapper">
+			<div
+				class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"
+				style="height: 80px; margin-bottom: 2px;">
+				<h1>Discuzz</h1>
+			</div>
+			<div class="ui-panel ui-widget ui-widget-content ui-corner-all"
+				style="margin-bottom: 3px; min-height: 500px;">
+				<ui:insert name="bodyContent" />
+			</div>
+		</div>
+
+	</h:body>
+</f:view>
+</html>

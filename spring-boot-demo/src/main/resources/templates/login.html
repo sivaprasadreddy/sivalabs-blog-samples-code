@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href=""></base>
+<title>SpringBoot</title>
+	<script type="text/javascript" src="webjars/jquery/1.9.0/jquery.js"></script>
+    <link rel="stylesheet" href="webjars/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="webjars/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="webjars/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+     <link rel="stylesheet" th:href="@{/css/styles.css}" />
+     <script type="text/javascript" src="js/app.js" ></script>
+            
+</head>
+<body>
+
+
+ <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="welcome">SivaLabs</a>
+        </div>
+        
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+            
+     <div class="row">
+     	
+     	<div class="col-md-6 col-md-offset-2">	
+             <div th:if="${param.error}" class="alert alert-danger" >
+                 Invalid UserName and Password.
+             </div>
+             <div th:if="${param.logout}"  class="alert alert-success">
+                 You have been logged out.
+             </div>
+         </div>  
+         
+		<div class="col-md-6 col-md-offset-2">	
+			<h2>User Login Form</h2>
+		
+		<form id="loginForm" method="post" action="login" 
+			class="form-horizontal" role="form" style="width: 800px; margin: 0 auto;">
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			
+		  <div class="form-group">
+		    <label for="username" class="col-sm-2 control-label">UserName*</label>
+		    <div class="col-sm-4">
+		      <input type="text" id="username" name="username" class="form-control" placeholder="UserName" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="password" class="col-sm-2 control-label">Password*</label>
+		    <div class="col-sm-4">
+		      <input type="password" id="password" name="password" class="form-control" placeholder="Password" />
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-4">
+		      <input type="submit" class="btn btn-primary" value="Login"/>
+		    </div>
+		  </div>
+		  
+		</form>
+
+       </div>
+      </div>    
+
+</body>
+</html>

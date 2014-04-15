@@ -1,0 +1,16 @@
+2014-03-23 11:03:01.529  INFO 8944 [main] --- com.sivalabs.Application                 : Starting Application on Siva-VAIO with PID 8944 (D:\Apps\dev\sts_workspace\spring-boot-demo\target\classes started by Siva)
+2014-03-23 11:03:01.606  INFO 8944 [main] --- ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1ec246b0: startup date [Sun Mar 23 11:03:01 IST 2014]; root of context hierarchy
+2014-03-23 11:03:02.929  INFO 8944 [main] --- .t.TomcatEmbeddedServletContainerFactory : Server initialized with port: 8080
+2014-03-23 11:03:03.274  INFO 8944 [main] --- o.apache.catalina.core.StandardService   : Starting service Tomcat
+2014-03-23 11:03:03.275  INFO 8944 [main] --- org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/7.0.52
+2014-03-23 11:03:03.447  INFO 8944 [localhost-startStop-1] --- o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2014-03-23 11:03:03.447  INFO 8944 [localhost-startStop-1] --- o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1845 ms
+2014-03-23 11:03:04.055  INFO 8944 [localhost-startStop-1] --- o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2014-03-23 11:03:04.058  INFO 8944 [localhost-startStop-1] --- o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2014-03-23 11:03:04.456  INFO 8944 [main] --- o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-03-23 11:03:04.557  INFO 8944 [main] --- s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto java.lang.String com.sivalabs.web.controllers.WelcomeController.home()
+2014-03-23 11:03:04.589  INFO 8944 [main] --- o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-03-23 11:03:04.589  INFO 8944 [main] --- o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2014-03-23 11:03:04.785  INFO 8944 [main] --- o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2014-03-23 11:03:04.897  INFO 8944 [main] --- s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080/http
+2014-03-23 11:03:04.900  INFO 8944 [main] --- com.sivalabs.Application                 : Started Application in 3.844 seconds (JVM running for 4.24)
