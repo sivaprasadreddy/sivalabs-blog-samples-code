@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+
+	
+	<http pattern="/resources/**" security="none"/>
+	
+	
+	<http auto-config="true" use-expressions="true">
+		
+		<intercept-url pattern="/" access="hasAnyRole('ROLE_ANONYMOUS', 'ROLE_USER')"/>
+		<intercept-url pattern="/login/*" access="hasAnyRole('ROLE_ANONYMOUS', 'ROLE_USER')"/>
+		<intercept-url pattern="/logout" access="hasAnyRole('ROLE_ANONYMOUS', 'ROLE_USER')"/>
+		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		
+		<form-login login-page="/login/form"
+					login-processing-url="/login"
+					username-parameter="username"
+					password-parameter="password"
+					authentication-failure-url="/login/form?error"/>
+		
+		<logout logout-url="/logout" logout-success-url="/login/form?logout"/>
+		
+	</http>
+<!-- 	
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="customUserDetailsService"/>
+	</authentication-manager>
+ -->
+	<authentication-manager>
+		
+		<authentication-provider>
+		
+			<jdbc-user-service id="userDetailsService" data-source-ref="dataSource"
+				users-by-username-query="select email, password, true from users where email = ?"
+				authorities-by-username-query="select u.email, r.role_name from users u, roles r where u.email = ? and u.id = r.user_id"
+			/>
+			
+			<!-- 
+			<user-service>
+				<user name="siva" password="siva" authorities="ROLE_USER" />
+				<user name="admin" password="admin" authorities="ROLE_USER,ROLE_ADMIN" />
+			</user-service>
+			 -->
+			
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
