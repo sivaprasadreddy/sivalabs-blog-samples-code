@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<description>PhoneBook</description>
+	
+	<welcome-file-list>
+		<welcome-file>welcome.jsf</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	<context-param> 
+		<param-name>primefaces.THEME</param-name> 
+		<param-value>start</param-value> 
+		<!-- <param-value>#{userSettingsController.selectedTheme}</param-value> -->
+	</context-param>
+
+	<context-param>
+		<param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>primefaces.UPLOADER</param-name>
+		<param-value>commons</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+		<param-value>6LfD3-QSAAAAADtDVq4I2weALbuSR1-KehgvAMYW</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+		<param-value>6LfD3-QSAAAAAKq31okWYrsN9yDpU97rzJoAq5Wm</param-value>
+	</context-param>
+
+	<!-- Java-based annotation-driven Spring container definition -->
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+	</context-param>
+
+	<!-- Location of Java @Configuration classes that configure the components 
+		that makeup this application -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.sivalabs.phonebook.config, com.sivalabs.phonebook.web</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
+	<listener>
+        <listener-class>com.sun.faces.config.ConfigureListener</listener-class> 
+    </listener>
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	<filter>
+	    <filter-name>OpenEntityManagerInViewFilter</filter-name>
+	    <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	    <init-param>
+	        <param-name>singleSession</param-name>
+	        <param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>flushMode</param-name>
+	        <param-value>AUTO</param-value>
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>OpenEntityManagerInViewFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>tr_TR</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+
+		<action-listener>org.primefaces.application.DialogActionListener</action-listener>
+		<navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+		<view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+
+	</application>
+
+	<factory>
+		<exception-handler-factory>com.sivalabs.phonebook.web.CustomExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
+</faces-config>

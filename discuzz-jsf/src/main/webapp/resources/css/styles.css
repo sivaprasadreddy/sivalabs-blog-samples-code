@@ -1,0 +1,26 @@
+#wrapper{
+   width:900px;
+   margin:0 auto;
+   text-align:left;
+}
+
+.header {
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    margin:2px auto;
+}
+
+.ui-widget {
+    font-size: 12px !important;
+}
+
+.table-align-top td
+{
+        vertical-align: top;
+}
+
+.ui-picklist-list {
+        height:100px !important;
+        width:200px !important;
+}

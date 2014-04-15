@@ -1,0 +1,131 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/mainLayout.xhtml">
+
+
+	<ui:define name="bodyContent">
+			
+		<p:growl autoUpdate="true"/>
+		
+		<h:form id="form">
+		
+		
+		<p:panel header="Search Contacts">
+			
+			<h:panelGrid columns="3" >
+				<p:outputLabel value="Search Contacts"/>
+				<p:inputText value="#{phoneBookController.searchQuery}"></p:inputText>
+				
+				<p:commandButton value="Search" 
+							actionListener="#{phoneBookController.searchContacts}"
+							update="@form"/>
+				
+			</h:panelGrid>
+			<br/>
+			<h:panelGrid columns="2" columnClasses="col50,col50" style="height: 300px;" styleClass="table-align-top">
+				<p:dataTable id="contactsTable" var="contact" value="#{phoneBookController.contacts}">
+					<f:facet name="header">
+						<h:outputLabel value="Contacts" />
+					</f:facet>
+					<p:column headerText="Id" sortBy="id">
+						<h:outputText value="#{contact.id}" />
+					</p:column>
+					<p:column headerText="Name" sortBy="name">
+						<h:outputText value="#{contact.name}" />
+					</p:column>
+					
+					<p:column headerText="Email" sortBy="email">
+						<h:outputText value="#{contact.email}" />
+					</p:column>
+					
+					<p:column headerText="Mobile" sortBy="mobile">
+						<h:outputText value="#{contact.mobile}" />
+					</p:column>
+					
+					<p:column style="width:4%">  
+		                <p:commandButton id="selectButton" icon="ui-icon-search"
+		                	actionListener="#{phoneBookController.setEditContact(contact)}" 
+		                	update=":form:editContactPanel" title="Edit">  
+			               
+			            </p:commandButton>  
+	        		</p:column>
+				
+				</p:dataTable>
+			
+				<h:panelGrid columns="1" id="editContactPanel" width="100%">
+				<p:panel header="Edit Contact"  rendered="#{phoneBookController.editContact != null}">
+					<h:panelGrid columns="2" >
+					<p:outputLabel value="Id"/>
+					<p:inputText value="#{phoneBookController.editContact.id}" readonly="true"/>
+					
+					<p:outputLabel value="Name"/>
+					<p:inputText value="#{phoneBookController.editContact.name}"></p:inputText>
+					
+					<p:outputLabel value="Email"/>
+					<p:inputText value="#{phoneBookController.editContact.email}"></p:inputText>
+					
+					<p:outputLabel value="Mobile"/>
+					<p:inputText value="#{phoneBookController.editContact.mobile}"></p:inputText>
+					
+					<p:outputLabel value="Home Phone"/>
+					<p:inputText value="#{phoneBookController.editContact.homePhone}"></p:inputText>
+					
+					<p:outputLabel value="Office Phone"/>
+					<p:inputText value="#{phoneBookController.editContact.ofcPhone}"></p:inputText>
+					
+					<p:outputLabel value="DOB"/>
+					<p:calendar value="#{phoneBookController.editContact.dob}" pattern="dd-MMM-yyyy" navigator="true">
+						
+					</p:calendar>
+						
+						
+					<p:commandButton value="Save" 
+									 actionListener="#{phoneBookController.updateContact}" update="@form"/>
+					<p:commandButton value="Delete" 
+									 actionListener="#{phoneBookController.deleteContact}" update="@form"/>
+				
+				</h:panelGrid>
+				</p:panel>
+				</h:panelGrid>
+			</h:panelGrid>
+			</p:panel>
+			
+			<br/>
+			
+			<p:panel header="Add new Contact">
+			<h:panelGrid columns="1" id="newContactPanel" width="100%">
+				<h:panelGrid columns="2" >
+					<p:outputLabel value="Name"/>
+					<p:inputText value="#{phoneBookController.newContact.name}"></p:inputText>
+					
+					<p:outputLabel value="Email"/>
+					<p:inputText value="#{phoneBookController.newContact.email}"></p:inputText>
+					
+					<p:outputLabel value="Mobile"/>
+					<p:inputText value="#{phoneBookController.newContact.mobile}"></p:inputText>
+					
+					<p:outputLabel value="Home Phone"/>
+					<p:inputText value="#{phoneBookController.newContact.homePhone}"></p:inputText>
+					
+					<p:outputLabel value="Office Phone"/>
+					<p:inputText value="#{phoneBookController.newContact.ofcPhone}"></p:inputText>
+					
+					<p:outputLabel value="DOB"/>
+					<p:calendar value="#{phoneBookController.newContact.dob}"></p:calendar>
+					
+					<p:commandButton value="Save" actionListener="#{phoneBookController.createContact}" 
+					update="@form"></p:commandButton>
+				</h:panelGrid>
+			</h:panelGrid>
+			
+		</p:panel>
+		
+		
+		</h:form>     
+			
+    </ui:define>
+
+</ui:composition>

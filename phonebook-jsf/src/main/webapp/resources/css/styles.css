@@ -1,0 +1,37 @@
+
+.wrapper{
+   width:1000px;
+   margin:0 auto;
+   
+}
+
+.header {
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    margin:2px auto;
+}
+
+.ui-widget {
+    font-size: 12px !important;
+}
+
+.ui-layout-unit{
+     border: none;
+}
+
+.col50
+{
+	widtH :50%;
+}
+
+.table-align-top td
+{
+        vertical-align: top;
+}
+/*
+.ui-picklist-list {
+         height:100px !important; 
+        width:200px !important; 
+}
+*/
