@@ -12,6 +12,6 @@ public class OrderMessageListener {
 
     @RabbitListener(queues = RabbitConfig.QUEUE_ORDERS)
     public void processOrder(Order order) {
-        logger.info("Order Received: "+order);
+        logger.info("Order Received: {}", order);
     }
 }

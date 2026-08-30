@@ -1,6 +1,0 @@
-
-
-<span>
-	SivaLabs
-</span>
-	
