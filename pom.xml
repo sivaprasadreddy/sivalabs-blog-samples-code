@@ -15,5 +15,6 @@
 	
     <modules>
         <module>springboot-rabbitmq-demo</module>
+        <module>spring-telegram-bot</module>
     </modules>
 </project>
