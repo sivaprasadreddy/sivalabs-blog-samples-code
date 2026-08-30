@@ -16,5 +16,6 @@
     <modules>
         <module>springboot-rabbitmq-demo</module>
         <module>spring-telegram-bot</module>
+        <module>spring-ai-tutorial</module>
     </modules>
 </project>

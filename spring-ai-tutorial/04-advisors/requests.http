@@ -1,0 +1,27 @@
+### Chat
+POST http://localhost:8080/ai/chat
+Content-Type: application/json
+
+{
+  "question": "Tell me a JavaScript joke?"
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Chat with sensitive words
+POST http://localhost:8080/ai/chat
+Content-Type: application/json
+
+{
+  "question": "Why javascript ecosystem moves at a fucking crazy speed?"
+}
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}

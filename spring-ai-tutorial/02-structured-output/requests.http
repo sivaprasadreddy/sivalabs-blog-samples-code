@@ -1,0 +1,19 @@
+### Suggest titles
+POST http://localhost:8080/ai/suggest-titles
+Content-Type: application/json
+
+{
+  "topic": "Spring Boot Tips and Tricks",
+  "count": 3
+}
+
+### Get languages
+GET http://localhost:8080/ai/langs
+
+### Generate Tweet
+POST http://localhost:8080/ai/gen-tweet
+Content-Type: application/json
+
+{
+  "prompt": "IntelliJ IDEA 2026.2 is released with a lot of new features such as Logpoints, Dependency completion in Gradle, Spring Security Inlays and Unlocking, Docker Compose improvements. Checkout https://www.jetbrains.com/idea/whatsnew/2026-2/ for more details."
+}
